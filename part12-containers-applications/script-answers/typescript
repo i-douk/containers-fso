@@ -1,0 +1,302 @@
+Script started on 2024-07-09 12:58:14+01:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="58" LINES="16"]
+[?2004h]0;solarnis@solaran: ~/fso/containers-fso/part12-containers-applications/script-answers[01;32msolarnis@solaran[00m:[01;34m~/fso/containers-fso/part12-containers-applications/script-answers[00m$ [K[A[K]0;solarnis@solaran: ~/fso/containers-fso/part12-containers-applications/script-answers[01;32msolarnis@solaran[00m:[01;34m~/fso/containers-fso/part12-containers-applications/script-answers[00m$ [K[A[K]0;solarnis@solaran: ~/fso/containers-fso/part12-containers-applications/script-answers[01;32msolarnis@solaran[00m:[01;34m~/fso/containers-fso/part12-containers-applications/script-answers[00m$ sudo docker container ls
+[?2004l[sudo] password for solarnis: 
+Sorry, try again.
+[sudo] password for solarnis: 
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS          PORTS                                         NAMES
+b0216ed53943   nginx     "/docker-entrypoint.…"   3 hours ago   Up 3 hours      0.0.0.0:8080->80/tcp, :::8080->80/tcp         bold_shirley
+eb0512fcdabe   mongo     "docker-entrypoint.s…"   6 hours ago   Up 24 seconds   0.0.0.0:3456->27017/tcp, :::3456->27017/tcp   todo-backend-mongo-1
+[?2004h]0;solarnis@solaran: ~/fso/containers-fso/part12-containers-applications/script-answers[01;32msolarnis@solaran[00m:[01;34m~/fso/containers-fso/part12-containers-applications/script-answers[00m$ [K[A[K[A[K]0;solarnis@solaran: ~/fso/containers-fso/part12-containers-applications/script-answers[01;32msolarnis@solaran[00m:[01;34m~/fso/containers-fso/part12-containers-applications/script-answers[00m$ [K[A[K]0;solarnis@solaran: ~/fso/containers-fso/part12-containers-applications/script-answers[01;32msolarnis@solaran[00m:[01;34m~/fso/containers-fso/part12-containers-applications/script-answers[00m$ sudo docke r container [K[K[K[K[K[K[K[K[K[Kexec it[K[K-it [7mtodo-backend-mongo-1[27m[C[C[C[C[C[C[C[C[C[C[Ctodo-backend-mongo-1
+[?2004l"docker exec" requires at least 2 arguments.
+See 'docker exec --help'.
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+Execute a command in a running container
+[?2004h]0;solarnis@solaran: ~/fso/containers-fso/part12-containers-applications/script-answers[01;32msolarnis@solaran[00m:[01;34m~/fso/containers-fso/part12-containers-applications/script-answers[00m$ [7m sudo dock[27m[7me[27m[7mr exec -it todo-backend-mongo-1[27m[A]0;solarnis@solaran: ~/fso/containers-fso/part12-containers-applications/script-answers[01;32msolarnis@solaran[00m:[01;34m~/fso/containers-fso/part12-containers-applications/script-answers[00m$  sudo docker exec -it todo-backend-mongo-1 bash
+[?2004l[?2004hroot@eb0512fcdabe:/# mongosh
+[?2004l]0;mongosh mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d2720a13abad24f149f47
+Connecting to:		[1m[32mmongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+Using MongoDB:		7.0.12
+[1m[33mUsing Mongosh[0m:		2.2.10
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+[1G[0J [1G[1G[0Jtest> [7Gshow dbs
+Uncaught [1m[31mMongoServerError[0m[1m[31m[Unauthorized][0m: Command listDatabases requires authentication
+[1G[0Jtest> [7Gshow dbs -u root [33m0[39m[1G[0Jtest> show dbs -u root [24G[33m9[39m[1G[0Jtest> show dbs -u root [24G-p example
+Uncaught [1m[31mMongoServerError[0m[1m[31m[Unauthorized][0m: Command listDatabases requires authentication
+[1G[0Jtest> [7G
+
+[1G[0Jtest> [7G--help
+[33mNaN[39m
+[1G[0Jtest> [7Gcle[1G[0Jtest> cl[9G[1G[0Jtest> c[8G[1G[0Jtest> [7GdisableTelemetry()
+Telemetry is now disabled.
+[1G[0Jtest> [7G[33m0[39m[1G[0Jtest> [7G-u root -p example
+Uncaught:
+[1m[31mSyntaxError[0m: Missing semicolon. (1:2)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m-[39mu root [33m-[39mp example[0m
+[0m [90m   |[39m   [31m[1m^[22m[39m[0m
+[0m [90m 2 |[39m[0m
+
+[1G[0Jtest> [7Guse the_database
+switched to db the_database
+[1G[0Jthe_database> [15Gshow dbs
+Uncaught [1m[31mMongoServerError[0m[1m[31m[Unauthorized][0m: Command listDatabases requires authentication
+[1G[0Jthe_database> [15Gauthenticate
+Uncaught [1m[31mReferenceError[0m: authenticate is not defined
+[1G[0Jthe_database> [15Gshow dbs --u root -p example[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> show dbs -u root -p example[24G[18C
+Uncaught [1m[31mMongoServerError[0m[1m[31m[Unauthorized][0m: Command listDatabases requires authentication
+[1G[0Jthe_database> [15Gauth
+Uncaught [1m[31mReferenceError[0m: auth is not defined
+[1G[0Jthe_database> [15Gmongosh [1G[0Jthe_database> mongosh [23G[1G[0Jthe_database> mongosh [23G[1G[0Jthe_database> mongosh [23G[1G[0Jthe_database> mongosh [23G[32m"[39m[32mm[39m[32mo[39m[32mn[39m[32mg[39m[32mo[39m[32md[39m[32mb[39m[32m:[39m[32m/[39m[32m/[39m[32ml[39m[32mo[39m[32mc[39m[32ma[39m[32ml[39m[32mh[39m[32mo[39m[32ms[39m[32mt[39m[32m:[39m[32m3[39m[32m4[39m[32m5[39m[32m6[39m[32m/[39m[32mt[39m[32mh[39m[32me[39m[32m_[39m[32md[39m[32ma[39m[32mt[39m[32ma[39m[32mb[39m[32ma[39m[32ms[39m[32me[39m[32m>[39m[1G[0Jthe_database> mongosh [32m"mongodb://localhost:3456/the_database[39m[61G[32m.[39m[1G[0Jthe_database> mongosh [32m"mongodb://localhost:3456/the_database[39m[61G[32m"[39m[1G[0Jthe_database> mongosh [32m"mongodb://localhost:3456/the_database[39m[61G[32m:[39m[32m3[39m[32m4[39m[32m5[39m[32m6[39m[1G[0Jthe_database> mongosh [32m"mongodb://localhost:3456/the_database:345[39m[65G[1G[0Jthe_database> mongosh [32m"mongodb://localhost:3456/the_database:34[39m[64G[1G[0Jthe_database> mongosh [32m"mongodb://localhost:3456/the_database:3[39m[63G[1G[0Jthe_database> mongosh [32m"mongodb://localhost:3456/the_database:[39m[62G[32m2[39m[32m7[39m[32m0[39m[32m1[39m[32m7[39m[32m"[39m
+Uncaught:
+[1m[31mSyntaxError[0m: Missing semicolon. (1:7)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m mongosh [32m"mongodb://localhost:3456/the_database:27017"[39m[0m
+[0m [90m   |[39m        [31m[1m^[22m[39m[0m
+[0m [90m 2 |[39m[0m
+
+[1G[0Jthe_database> [15G
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+[1G[0Jthe_database> [15G
+[?2004hroot@eb0512fcdabe:/# clear
+[?2004l[H[2J[3J[?2004hroot@eb0512fcdabe:/# mongosh : "[7mmongodb://localhost:3456/the_database[27mroot@eb0512fcdabe:/# mongosh "mongodb://localhost:3456/the_database> ' / " . ? :[7m27017[27m27017"
+[?2004l]0;mongosh mongodb://localhost:3456/the_database:27017?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d2a7124507490be149f47
+Connecting to:		[1m[32mmongodb://localhost:3456/the_database:27017?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:3456
+[?2004hroot@eb0512fcdabe:/# [7mmongosh "mongodb://localhost:3456/the_database:27017"[27mroot@eb0512fcdabe:/# mongosh "mongodb://localhost:3456/the_database:27017" 0 -u root  -p ewa  xample
+[?2004l]0;mongosh mongodb://<credentials>@localhost:3456/the_database:27017?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d2a8ae29e514d9e149f47
+Connecting to:		[1m[32mmongodb://<credentials>@localhost:3456/the_database:27017?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:3456
+[?2004hroot@eb0512fcdabe:/# [7mmongosh "mongodb://root:example@localhost:3456/the_database"[27mroot@eb0512fcdabe:/# mongosh "mongodb://root:example@localhost:3456/the_database"
+[?2004l\]0;mongosh mongodb://<credentials>@localhost:3456/the_database?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d2ac9743672123b149f47
+Connecting to:		[1m[32mmongodb://<credentials>@localhost:3456/the_database?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:3456
+[?2004hroot@eb0512fcdabe:/# \ [7mmongosh "mongodb://root:example@localhost:3456/the_database"[27mroot@eb0512fcdabe:/# mongosh "mongodb://root:example@localhost:3456/the_database"6[1P[1P[1P[1P[1@2[1@7[1@0[1@17/the_database" [Aoot@eb0512fcdabe:/# mongosh "mongodb://root:example@localhost:27017
+[?2004l]0;mongosh mongodb://<credentials>@localhost:27017/the_database?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d2ad6ea85d99ec2149f47
+Connecting to:		[1m[32mmongodb://<credentials>@localhost:27017/the_database?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+MongoServerError: Authentication failed.
+[?2004hroot@eb0512fcdabe:/# [7mmongosh "mongodb://root:example@localhost:27017/the_database"[27m [Aroot@eb0512fcdabe:/# mongosh "mongodb://root:example@localhost:27017/the_database" = [Aroot@eb0512fcdabe:/# mongosh "mongodb://root:example@localhost:27017/the_database" [K-u root -p example
+[?2004l]0;mongosh mongodb://<credentials>@localhost:27017/the_database-u?directConnection=true&serverSelectionTimeoutMS=2000MongoServerError: Authentication failed.
+[?2004hroot@eb0512fcdabe:/# mongosh
+[?2004l]0;mongosh mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d2afb3cfa940678149f47
+Connecting to:		[1m[32mmongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+Using MongoDB:		7.0.12
+[1m[33mUsing Mongosh[0m:		2.2.10
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+[1G[0J [1G[1G[0Jtest> [7Guse admin
+switched to db admin
+[1G[0Jadmin> [8Gmongosh [32m"[39m[32mm[39m[32mo[39m[32mn[39m[32mg[39m[32mo[39m[32md[39m[32mb[39m[32m:[39m[32m/[39m[32m/[39m[32mr[39m[32mo[39m[32mo[39m[32mt[39m[32m:[39m[32me[39m[32mx[39m[32ma[39m[32mm[39m[32mp[39m[32ml[39m[32me[39m[32m@[39m[32ml[39m[32mo[39m[32mc[39m[32ma[39m[32ml[39m[32mh[39m[32mo[39m[32ms[39m[32mt[39m[32m:[39m[32m2[39m[32m7[39m[32m0[39m[32m1[39m[32m7[39m[32m/[39m[32mt[39m[32mh[39m[32me[39m[32m_[39m[32md[39m[32ma[39m[32mt[39m[32ma[39m[32mb[39m[32ma[39m[32ms[39m[32me[39m[32m"[39m
+Uncaught:
+[1m[31mSyntaxError[0m: Missing semicolon. (1:7)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m mongosh [32m"mongodb://root:example@localhost:27017/the_database"[39m[0m
+[0m [90m   |[39m        [31m[1m^[22m[39m[0m
+[0m [90m 2 |[39m[0m
+
+[1G[0Jadmin> [8Gdb.auth([32m"[39m[32mr[39m[32mo[39m[32mo[39m[32mt[39m[32m"[39m,[1G[0Jadmin> db.auth([32m"root"[39m[22G,[32m"[39m[32me[39m[32mx[39m[32ma[39m[32mm[39m[32mp[39m[32ml[39m[32me[39m[32m:[39m[1G[0Jadmin> db.auth([32m"root"[39m,[32m"example[39m[31G[32m"[39m_[1G[0Jadmin> db.auth([32m"root"[39m,[32m"example"[39m[32G+[1G[0Jadmin> db.auth([32m"root"[39m,[32m"example"[39m[32G_[1G[0Jadmin> db.auth([32m"root"[39m,[32m"example"[39m[32G)
+{ ok: [33m1[39m }
+[1G[0Jadmin> [8Gdbs
+Uncaught [1m[31mReferenceError[0m: dbs is not defined
+[1G[0Jadmin> [8Gshow bd[1G[0Jadmin> show b[14G[1G[0Jadmin> show [13Gdbs
+[1madmin[0m         100.00 KiB
+[1mconfig[0m         72.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   72.00 KiB
+[1G[0Jadmin> [8G> use the_database
+Uncaught:
+[1m[31mSyntaxError[0m: Unexpected token (1:0)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m>[39m use the_database[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 2 |[39m[0m
+
+[1G[0Jadmin> [8G
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+[1G[0Jadmin> [8G> use the_database
+Uncaught:
+[1m[31mSyntaxError[0m: Unexpected token (1:0)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m>[39m use the_database[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 2 |[39m[0m
+
+[1G[0Jadmin> [8G
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+[1G[0Jadmin> [8G
+[?2004hroot@eb0512fcdabe:/# mongosh
+[?2004l]0;mongosh mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d2b5ee4ac2eff91149f47
+Connecting to:		[1m[32mmongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+Using MongoDB:		7.0.12
+[1m[33mUsing Mongosh[0m:		2.2.10
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+[1G[0J [1G[1G[0Jtest> [7Guse [1G[0Jtest> use[10G[1G[0Jtest> us[9G[1G[0Jtest> u[8G[1G[0Jtest> [7G> use the_database
+Uncaught:
+[1m[31mSyntaxError[0m: Unexpected token (1:0)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m>[39m use the_database[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 2 |[39m[0m
+
+[1G[0Jtest> [7Guse admin
+switched to db admin
+[1G[0Jadmin> [8G> use the_database
+Uncaught:
+[1m[31mSyntaxError[0m: Unexpected token (1:0)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m>[39m use the_database[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 2 |[39m[0m
+
+[1G[0Jadmin> [8Gshow dbs
+Uncaught [1m[31mMongoServerError[0m[1m[31m[Unauthorized][0m: Command listDatabases requires authentication
+[1G[0Jadmin> [8Gdb[1G[0Jadmin> d[9G[1G[0Jadmin> [8Guse [1G[0Jadmin> use[11G[1G[0Jadmin> us[10G[1G[0Jadmin> u[9G[1G[0Jadmin> [8G> use the_database
+Uncaught:
+[1m[31mSyntaxError[0m: Unexpected token (1:0)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m>[39m use the_database[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 2 |[39m[0m
+
+[1G[0Jadmin> [8G
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+[1G[0Jadmin> [8G
+[?2004hroot@eb0512fcdabe:/# [7mmongosh "mongodb://localhost:3456/the_database:27017"[27mroot@eb0512fcdabe:/# mongosh "mongodb://localhost:3456/the_database:27017"
+[?2004l]0;mongosh mongodb://localhost:3456/the_database:27017?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d2ba26c0a30e69d149f47
+Connecting to:		[1m[32mmongodb://localhost:3456/the_database:27017?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:3456
+[?2004hroot@eb0512fcdabe:/# [7mmongosh "mongodb://localhost:3456/the_database:27017"[27mroot@eb0512fcdabe:/# mongosh "mongodb://localhost:3456/the_database:27017"
+[?2004l]0;mongosh mongodb://localhost:3456/the_database:27017?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d3574e51835effd149f47
+Connecting to:		[1m[32mmongodb://localhost:3456/the_database:27017?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:3456
+[?2004hroot@eb0512fcdabe:/# [7mmongosh "mongodb://localhost:3456/the_database:27017"[27mroot@eb0512fcdabe:/# mongosh "mongodb://localhost:3456/the_database:27017"  0  0 9 0  odb://[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[14@[7mmongodb+srv://[27mmongodb+srv://localhost:3456/the_database:27017"
+[?2004lMongoParseError: mongodb+srv URI cannot have port number
+[?2004hroot@eb0512fcdabe:/# [7mmongosh "mongodb+srv://localhost:3456/the_database:27017"[27mroot@eb0512fcdabe:/# mongosh "mongodb+srv://localhost:3456/the_database:27017"7[1P"[1P"[1P"[1P"[1P"[1P"" 
+[?2004lMongoParseError: mongodb+srv URI cannot have port number
+[?2004hroot@eb0512fcdabe:/# mongosh "[7mmongodb://localhost:3456/the_database[27mroot@eb0512fcdabe:/# mongosh "mongodb://localhost:3456/the_database"
+[?2004l]0;mongosh mongodb://localhost:3456/the_database?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d370731e666a15d149f47
+Connecting to:		[1m[32mmongodb://localhost:3456/the_database?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:3456
+[?2004hroot@eb0512fcdabe:/# [7mmongosh "mongodb://localhost:3456/the_database"[27mroot@eb0512fcdabe:/# mongosh "mongodb://localhost:3456/the_database" -u root 0 -p ex ample
+[?2004l]0;mongosh mongodb://<credentials>@localhost:3456/the_database?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d3719e3623ae9bf149f47
+Connecting to:		[1m[32mmongodb://<credentials>@localhost:3456/the_database?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:3456
+[?2004hroot@eb0512fcdabe:/# clear
+[?2004l[H[2J[3J[?2004hroot@eb0512fcdabe:/# mongosh
+[?2004l]0;mongosh mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	668d374952e5eb4325149f47
+Connecting to:		[1m[32mmongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.10[0m
+Using MongoDB:		7.0.12
+[1m[33mUsing Mongosh[0m:		2.2.10
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+[1G[0J [1G[1G[0Jtest> [7Guse admin
+switched to db admin
+[1G[0Jadmin> [8Gdc[1G[0Jadmin> d[9G[1G[0Jadmin> [8Gdb.auth([1G[0Jadmin> db.auth[15G([1G[0Jadmin> db.auth[15G[1G[0Jadmin> db.aut[14G[1G[0Jadmin> db.au[13G[1G[0Jadmin> db.a[12G[1G[0Jadmin> db.[11G[1G[0Jadmin> db[10G[1G[0Jadmin> d[9G[1G[0Jadmin> [8Guse the)[1G[0Jadmin> use the[15G_databse
+switched to db the_databse
+[1G[0Jthe_databse> [14Gclear
+Uncaught [1m[31mReferenceError[0m: clear is not defined
+[1G[0Jthe_databse> [14G> use the_database
+Uncaught:
+[1m[31mSyntaxError[0m: Unexpected token (1:0)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m>[39m use the_database[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 2 |[39m[0m
+
+[1G[0Jthe_databse> [14Gue ad[1G[0Jthe_databse> ue a[18G[1G[0Jthe_databse> ue [17G[1G[0Jthe_databse> ue[16G[1G[0Jthe_databse> u[15Gse admin
+switched to db admin
+[1G[0Jadmin> [8G> use the_database
+Uncaught:
+[1m[31mSyntaxError[0m: Unexpected token (1:0)
+
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m>[39m use the_database[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 2 |[39m[0m
+
+[1G[0Jadmin> [8G> use the_database[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jadmin>  use the_database[8G[17C
+switched to db the_database
+[1G[0Jthe_database> [15Gdb.auth([32m"[39m[32mr[39m[32mo[39m[32mo[39m[32mt[39m[32m:[39m[1G[0Jthe_database> db.auth([32m"root[39m[28G[32m'[39m[1G[0Jthe_database> db.auth([32m"root[39m[28G[32m"[39m,[32m"[39m[32me[39m[32mx[39m[32ma[39m[32mm[39m[32mp[39m[32ml[39m[32me[39m[32m"[39m_[1G[0Jthe_database> db.auth([32m"root"[39m,[32m"example"[39m[39G)
+Uncaught [1m[31mMongoServerError[0m[1m[31m[AuthenticationFailed][0m: Authentication failed.
+[1G[0Jthe_database> [15Gshow dbs
+Uncaught [1m[31mMongoServerError[0m[1m[31m[Unauthorized][0m: Command listDatabases requires authentication
+[1G[0Jthe_database> [15Guse ami[1G[0Jthe_database> use am[21G[1G[0Jthe_database> use a[20G[36mas[39masmin[1G[0Jthe_database> use asmi[23G[1G[0Jthe_database> use asm[22G[1G[0Jthe_database> use [36mas[39m[21G[1G[0Jthe_database> use a[20Gdmin
+switched to db admin
+[1G[0Jadmin> [8Gdb.auth([32m"[39m[32mt[39m[32mo[39m[1G[0Jadmin> db.auth([32m"t[39m[18G[1G[0Jadmin> db.auth([32m"[39m[17G[32mr[39m[32mo[39m[32mo[39m[32mt[39m[32m"[39m,[32m"[39m[32me[39m[32mx[39m[32ma[39m[32mm[39m[32mp[39m[32ml[39m[32me[39m[32m"[39m)
+{ ok: [33m1[39m }
+[1G[0Jadmin> [8Guse the_database
+switched to db the_database
+[1G[0Jthe_database> [15Gclear
+Uncaught [1m[31mReferenceError[0m: clear is not defined
+[1G[0Jthe_database> [15Gsh[1G[0Jthe_database> s[16Ghow dbs
+[1madmin[0m         100.00 KiB
+[1mconfig[0m         72.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   72.00 KiB
+[1G[0Jthe_database> [15Gsbow c[1G[0Jthe_database> sbow [20G[1G[0Jthe_database> sbow[19G[1G[0Jthe_database> sbo[18G[1G[0Jthe_database> sb[17G[1G[0Jthe_database> s[16Ghiw[1G[0Jthe_database> shi[18G[1G[0Jthe_database> sh[17Gow collections
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.find({})
+1aa5f7931f079"),
+    text: 'Learn about containers',
+    done: false
+  }
+][
+  {
+    _id: ObjectId([32m'668cd5e8fc95e89489149f48'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'668cd5e8fc95e89489149f49'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mtrue[39m
+  }
+]
+[1G[0Jthe_database> [15G[
+[1G[0J... [5G  {
+[1G[0J... [5G    _id: Objec[36mObject[39mObjectId([32m"[39m[32m6[39m[32m3[39m[32m3[39m[32mc[39m[32m2[39m[32m7[39m[32m0[39m[32mb[39m[32ma[39m[32m2[39m[32m1[39m[32m1[39m[32ma[39m[32ma[39m[32m5[39m[32mf[39m[32m7[39m[32m9[39m[32m3[39m[32m1[39m[32mf[39m[32m0[39m[32m7[39m[32m8[39m[32m"[39m),
+[1G[0J... [5G    text: [32m'[39m[32mW[39m[32mr[39m[32mi[39m[32mt[39m[32me[39m [32mc[39m[32mo[39m[32md[39m[32me[39m[32m'[39m,
+[1G[0J... [5G    d[36mdo[39mdone: fals[33mfalse[39m
+[1G[0J... [5G  },
+[1G[0J... [5G  {
+[1G[0J... [5G    _id: Objec[36mObject[39mObjectId([32m"[39m[32m6[39m[32m3[39m[32m3[39m[32mc[39m[32m2[39m[32m7[39m[32m0[39m[32mb[39m[32ma[39m[32m2[39m[32m1[39m[32m1[39m[32ma[39m[32ma[39m[32m5[39m[32mf[39m[32m7[39m[32m9[39m[32m3[39m[32m1[39m[32mf[39m[32m0[39m[32m7[39m[32m9[39m[32m"[39m),
+[1G[0J... [5G    text: [32m'[39m[32mL[39m[32me[39m[32ma[39m[32mr[39m[32mn[39m [32ma[39m[32mb[39m[32mo[39m[32mu[39m[32mt[39m [32mc[39m[32mo[39m[32mn[39m[32mt[39m[32ma[39m[32mi[39m[32mn[39m[32me[39m[32mr[39m[32ms[39m[32m'[39m,
+[1G[0J... [5G    d[36mdo[39mdone: fals[33mfalse[39m
+[1G[0J... [5G  }
+[1G[0J... [5G][1G[0J... [5G
+[1G[0Jthe_database> [15Gdb.todos.put([1G[0Jthe_database> db.todos.put[27G[1G[0Jthe_database> db.todos.pu[26G[1G[0Jthe_database> db.todos.p[25G[1G[0Jthe_database> db.todos.[24Gset()[1G[0Jthe_database> db.todos.set([28G([1G[0Jthe_database> db.todos.set([28GP[1G[0Jthe_database> db.todos.set([28G[1G[0Jthe_database> db.todos.set[27G[1G[0Jthe_database> db.todos.se[26G[1G[0Jthe_database> db.todos.s[25G[1G[0Jthe_database> db.todos.[24Gpost)[1G[0Jthe_database> db.todos.post[28G()[1G[0Jthe_database> db.todos.post([29G{ text >[1G[0Jthe_database> db.todos.post({ text [36G[33mtext[39m : [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m [32mb[39m[32me[39m[32ml[39m[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt[39m [1G[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool bel[39m[82G[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt[39m [1G[32m"[39m[32m"[39m[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m[2G, d[36mdo[39mdone : fals[33mfalse[39m {[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m [17G}+[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[18G_[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[18G)
+Uncaught [1m[31mTypeError[0m: db.todos.post is not a function
+[1G[0Jthe_database> [15Gdb.todos.fond[1G[0Jthe_database> db.todos.fon[27G[1G[0Jthe_database> db.todos.fo[26G[1G[0Jthe_database> db.todos.f[25Gind(P[1G[0Jthe_database> db.todos.find([29G{{[1G[0Jthe_database> db.todos.find({[30G}_[1G[0Jthe_database> db.todos.find({}[31G)
+[
+  {
+    _id: ObjectId([32m'668cd5e8fc95e89489149f48'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'668cd5e8fc95e89489149f49'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mtrue[39m
+  }
+]
+[1G[0Jthe_database> [15Gdb.todos.set({[1G[0Jthe_database> db.todos.set([28G[1G[0Jthe_database> db.todos.set[27G[1G[0Jthe_database> db.todos.se[26Gt({ text [33mtext[39m : [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m [32mb[39m[32me[39m[32ml[39m[32mt[39m[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m [1G, d[36mdo[39mdone : fals[33mfalse[39m })
+Uncaught [1m[31mTypeError[0m: db.todos.set is not a function
+[1G[0Jthe_database> [15Gshow collections
+[1mtodos[0m
+[1G[0Jthe_database> [15Gshow todos
+Uncaught [1m[31mMongoshInvalidInputError[0m: [COMMON-10001] 'todos' is not a valid argument for "show".
+[1G[0Jthe_database> [15Gdb.todos.set({ text [33mtext[39m : [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m [32mb[39m[32me[39m[32ml[39m[32mt[39m[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m [1G, d[36mdo[39mdone : fals[33mfalse[39m })[1D[1A[1G[0Jthe_database> db.todos.set[44m([49m{ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[17G[1D[1A[1G[0Jthe_database> db.todos.set([44m{[49m [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[16G[1D[1A[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[15G[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1A[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [44m[32m"[49mIncrease the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[82G[1A[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [44m[32m"[49mIncrease the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[82G[1A[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[81G[1A[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt[44m"[39m[49m, [33mdone[39m : [33mfalse[39m })[37G[1A[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[36G[1A[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m [44m}[49m)[28G[1A[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[27G[1A[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[26G[1A[1D[1D[1D[1G[0Jthe_database> db.todo.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[22G[1A[1G[0Jthe_database> db.todo.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[17G
+Uncaught [1m[31mTypeError[0m: db.todo.set is not a function
+[1G[0Jthe_database> [15Gdb.todos.set({ text [33mtext[39m : [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m [32mb[39m[32me[39m[32ml[39m[32mt[39m[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m [1G, d[36mdo[39mdone : fals[33mfalse[39m })[1D[1A[1G[0Jthe_database> db.todos.set[44m([49m{ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[17G[1D[1A[1G[0Jthe_database> db.todos.set([44m{[49m [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[16G[1D[1A[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[15G[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1A[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [44m[32m"[49mIncrease the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[82G[1A[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [44m[32m"[49mIncrease the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[82G[1A[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[81G[1A[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt[44m"[39m[49m, [33mdone[39m : [33mfalse[39m })[37G[1A[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[36G[1A[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m [44m}[49m)[28G[1A[1D[1G[0Jthe_database> db.todos.set({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[27G[1A[1G[0Jthe_database> db.todos.se({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[26G[1A[1G[0Jthe_database> db.todos.s({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[25G[1A[1G[0Jthe_database> db.todos.({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[24G[1A[1G[0Jthe_database> db.todos.p({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[25G[1A[1G[0Jthe_database> db.todos.po({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[26G[1A[1G[0Jthe_database> db.todos.pos({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[27G[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[28G[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[19G[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[19G
+Uncaught [1m[31mTypeError[0m: db.todos.post is not a function
+[1G[0Jthe_database> [15Gdb.todos.post({ text [33mtext[39m : [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m [32mb[39m[32me[39m[32ml[39m[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt[39m [1G[32m"[39m, d[36mdo[39mdone : fals[33mfalse[39m })[1D[1A[1G[0Jthe_database> db.todos.post[44m([49m{ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[18G[1D[1A[1G[0Jthe_database> db.todos.post([44m{[49m [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[17G[1D[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[16G[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [44m[32m"[49mIncrease the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[1G[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[82G[1A[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[82G[1A[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt[44m"[39m[49m, [33mdone[39m : [33mfalse[39m })[38G[1A[1D[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[37G[1A[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m [44m}[49m)[29G[1A[1D[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[28G[1A[1D[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m })[27G[1A[1C[1G[0Jthe_database> db.todos.post({ [33mtext[39m : [32m"Increase the number of tools in my tool belt"[39m, [33mdone[39m : [33mfalse[39m }[44m)[49m[28G[1A[1G[0Jthe_database> db.todos.pos({ [
