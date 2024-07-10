@@ -8,7 +8,6 @@ router.get('/', async (_, res) => {
   res.send(todos);
 });
 
-
 /* POST todo to listing. */
 router.post('/', async (req, res) => {
   const todo = await Todo.create({
@@ -43,13 +42,12 @@ singleRouter.get('/', async (req, res) => {
 
 /* PUT todo. */
 singleRouter.put('/', async (req, res) => {
-  const todoToAdd = req.body
+  const todoToAdd = req.body;
   req.todo.set(todoToAdd);
   await req.todo.save();
   res.send(200);
 });
 
 router.use('/:id', findByIdMiddleware, singleRouter)
-
 
 module.exports = router;
