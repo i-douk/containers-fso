@@ -12,7 +12,8 @@
      - ./mongo_data:/data/db
      
   redis:
+    image: redis
     ports:
       - 6379:6379
     volumes:
-      - ./redis_data:/dat
+      - ./redis/index.js:/docker-entrypoint-initdb.d/redis.js
