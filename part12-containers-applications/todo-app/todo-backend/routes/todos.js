@@ -15,13 +15,10 @@ router.post('/', async (req, res) => {
     text: req.body.text,
     done: false
   });
-
   const currentTodos = JSON.parse(await getAsync('todos')) || [];
-    
   currentTodos.push(todo);
-
   await setAsync('todos', JSON.stringify(currentTodos));
-
+  await setAsync('added_todos', currentTodos.length);
   res.send(todo);
 });
 
