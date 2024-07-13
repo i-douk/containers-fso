@@ -15,5 +15,7 @@
     image: redis
     ports:
       - 6379:6379
+    command: ['redis-server', '--appendonly', 'yes']
     volumes:
       - ./redis/index.js:/docker-entrypoint-initdb.d/redis.js
+      - ./redis_data:/data
