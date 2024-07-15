@@ -12,8 +12,11 @@ When running the server, visit http://localhost:3000 to see visit counter, or gi
 
 # MongoDB
 
-The application has /todos crud which requires a MongoDB. Pass connection url with env `MONGO_URL`
+The application has /todos crud which requires a MongoDB. Pass connection url with env `MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database`
+
+
 
 # Redis
 
-Pass connection url with env `REDIS_URL`
+Pass connection url with env `REDIS_URL=redis://localhost:6379` 
+
