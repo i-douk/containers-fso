@@ -1,15 +1,15 @@
- services: 
+services: 
   mongo:
     image: mongo
     ports:
-     - 3456:27017
+      - 3456:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: the_database
     volumes:       
-     - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-     - ./mongo_data:/data/db
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./mongo_data:/data/db
      
   redis:
     image: redis
@@ -20,14 +20,16 @@
       - ./redis/index.js:/docker-entrypoint-initdb.d/redis.js
       - ./redis_data:/data
 
-  app:                    
-    image: express-server 
-    build:
-      context: . # The context will pick this directory as the "build context"
-      dockerfile: dev.Dockerfile # This will simply tell which dockerfile to read            
-    ports:                
-      - 3000:3000
-    container_name: todo-backend-dev
-    environment: 
-      - REDIS_URL=redis://localhost:6379
-      - MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database
+  server:
+      image: todo-backend-dev
+      build:
+        context: .
+        dockerfile: dev.Dockerfile
+      volumes:
+        - ./:/usr/src/app
+      ports:
+        - "3000:3000"
+      environment:
+        REDIS_URL: redis://redis:6379
+        MONGO_URL: mongodb://the_username:the_password@mongo:27017/the_database
+      container_name: todo-backend-dev
