@@ -1,0 +1,22 @@
+
+html, body {
+    min-height: 100%;
+    margin : 5px;
+    padding : 5px;
+}
+
+body { 
+    background-color: rgb(227, 233, 239);
+}
+
+.diary-entry {
+     border-style: dashed;
+     margin: 5px;
+     border-width : 1px;
+     padding:5px;
+     background-color: aliceblue;
+}
+
+.error {
+    color: red;
+}
