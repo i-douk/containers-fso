@@ -4,7 +4,6 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-# COPY /Todos/List.test.jsx src/Todos/List.test.jsx
 
 RUN npm ci
 

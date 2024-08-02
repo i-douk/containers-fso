@@ -11,6 +11,7 @@ RUN npm install
 ENV DEBUG=playground:*
 
 COPY package*.json ./
+
 USER node
 
 CMD ["npm", "run", "dev", "--", "--host"]
